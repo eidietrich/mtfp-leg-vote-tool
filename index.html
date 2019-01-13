@@ -23,7 +23,66 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet"> -->
 </head>
 <body>
+    <div class="container">
+        <h1 class="page-header">MTLeg vote chart creater</h1>
+        <h4>1. Enter information</h4>
+        <form class="leg-data-form">
+          <div class="form-group">
+            <label for="headline-input">Headline</label>
+            <input type="text" class="form-control"
+              id="headline-input" placeholder="">
+            <label for="cutline-input">Cutline</label>
+            <input type="text" class="form-control"
+              id="cutline-input">
+            <label for="url-input">Bill page URL (optional)</label>
+            <input type="text" class="form-control"
+              id="url-input">
+            <label for="vote-text-input">
+              Vote text (clear default, then copy text from bill page, e.g.
+              <a href="http://laws.leg.mt.gov/legprd/LAW0211W$BLAC.VoteTabulation?P_VOTE_SEQ=S151&P_SESS=20171" target="_blank">here</a>
+               or
+               <a href="http://leg.mt.gov/bills/2017/minutes/house/votesheets/HB0042TAH170113.pdf" target="_blank">here</a>)
+            </label>
+            <textarea type="text" class="form-control" rows="10" id="vote-text-input"></textarea>
+            <br/>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </div>
+        </form>
+        <hr>
+    
+        <h4>2. Interactive preview</h4>
+        <div id="viz-root">
+            <div id="viz-container">
+                <div id="viz-contents"></div>
+                <div id="tooltip-container"></div>
+            </div>
+        </div>
 
-        
+        <hr/>
+    
+        <h4>3. Copy HTML for embed (TODO: rebuild this)</h4>
+        <textarea
+          type="text"
+          class="form-control"
+          id="html-for-embed"
+          rows="5"
+        ></textarea>
+        <br/>
+        <button id="output-copy-btn" class="btn btn-dark">Copy</button>
+
+        <hr />
+    
+        <h4>4. Export static image</h4>
+        <button id="generate-image" class="btn btn-dark">1. Generate</button>
+        <button class="btn btn-dark">
+            <!-- This needs a link to work -->
+            <a id="trigger-image-download">2. Download</a>
+        </button>
+        <!-- <p>Static image generated: <span class="static-image-indicator">No</span></p> -->
+        <p>Note: May not work in Internet Explorer</p>
+        <h5>Image (png) export preview</h5>
+        <div id="image-preview" width="100%">None yet</div>
+        <div class="image-export" id="viz-container"></div>
+    </div>  
 </body>
 </html>

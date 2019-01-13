@@ -1,0 +1,159 @@
+
+#viz-root {
+    // border: 1px #bbb solid;
+  }
+  
+  #viz-container {
+    padding: 10px 10px;
+    background-color: #fff;
+  }
+  
+  #viz-container h2 {
+    font-weight: 600;
+  }
+  #viz-container p, h5 {
+    font-size: 18px;
+  }
+  
+  /* Vote total */
+  #viz-container .vote-total-container {
+    text-align: center;
+  }
+  
+  /* District display */
+  
+  #viz-container .district-container {
+    width: 100%;
+    margin: 0px auto 0.5em;
+    /*padding: 10px 0px;*/
+    padding: 2.5px 2.5px;
+    border: 1px solid black;
+  }
+  
+  #viz-container .district-container.gop {
+    border-color: #e41a1c;
+    border-top: 5px solid #e41a1c;
+  }
+  #viz-container .district-container.dem {
+    border-color: #377eb8;
+    border-top: 5px solid #377eb8;
+  }
+  
+  /*Clearfix hack*/
+  #viz-container .district-container::after{
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  #viz-container .district {
+    width: 50px;
+    padding: 0 1em;
+    height: 50px;
+    margin: 1.5px;
+    float: left;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    background: #bbb;
+    border: 1px solid #979797;
+  }
+  #viz-container .district:hover {
+    border: 2px solid #000;
+  }
+  #viz-container .district span{
+    pointer-events: none;
+  }
+  
+  /* Partisan colors */
+  #viz-container span {
+    font-weight: bold;
+  }
+  #viz-container span.number-large {
+    font-size: 2em;
+  }
+  #viz-container span.number-small {
+    font-size: 1.25em;
+  }
+  
+  #viz-container span.support {
+    color: #4daf4a;
+  }
+  #viz-container span.oppose {
+    color: #ff7f00;
+  }
+  #viz-container span.other-vote {
+    color: #666;
+  }
+  #viz-container span.dem {
+    color: #377eb8;
+  }
+  #viz-container span.gop {
+    color: #e41a1c;
+  }
+  
+  #viz-container .yea {
+    background: #4daf4a;
+    border: 0.5px solid #3D8B3B;
+  }
+  
+  #viz-container .nay {
+    background: #ff7f00;
+    border: 0.5px solid #DB6D00;
+   }
+  
+  #viz-container .dem {
+    /*border-top: 4px solid #377eb8;*/
+  }
+  
+  #viz-container .gop {
+    /*border-top: 4px solid #e41a1c;*/
+  }
+  
+  /* Filter buttons*/
+  .district.gop.filter,
+  .district.dem.filter {
+    display: none;
+  }
+  
+  #filter-container > div {
+    margin-left: 4px;
+  }
+  
+  /* Tooltip */
+  
+  #viz-container #tooltip-container .hide {
+    display: none;
+  }
+  
+  #viz-container #tooltip-container {
+    position: absolute;
+    background-color: #fff;
+    opacity: 1;
+    padding: 0.5em 0.75em;
+    border: 0.5px solid #ddd;
+    box-shadow: 2px 2px 4px #555;
+    z-index: 2000;
+  }
+  
+  /* Note: Conditional css for mobile versus desktop tooltips provided by template.js */
+  
+  #viz-container #tooltip-container .hide {
+    display: none;
+  }
+  
+  #viz-container #tooltip-container .tooltip-content {
+    text-align: left;
+  }
+  #viz-container #tooltip-container .tooltip-title {
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: 0;
+    /*margin-bottom: 0.25em;*/
+  }
+  #viz-container #tooltip-container .tooltip-text {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  

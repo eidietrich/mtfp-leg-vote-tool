@@ -1,16 +1,31 @@
 @import "~bootstrap/scss/bootstrap";
+@import 'chart';
 
 html, body {
     height: 100%;
     width: 100%;
     font-size: 100%;
+    background-color: #eee;
     // font-family: sans-serif;
     // text-align: center;
     // font-weight: lighter;
 }
 
-a{
-    color: inherit;
+.container {
+    margin-bottom: 30px;
+}
+
+
+#image-preview {
+    min-height: 200px;
+    text-align: center;
+    padding-top: 40px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+.image-export {
+    // display: none;
 }
 
 // button{

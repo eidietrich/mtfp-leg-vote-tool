@@ -47,11 +47,10 @@ module.exports = {
                             sourceMap: true,
                             sourceMapContents: true
                         }
-                    }
+                    },
                     // Please note we are not running postcss here
                 ]
-            }
-            ,
+            },
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
                 test: /\.(png|jpg|gif)$/,
@@ -65,6 +64,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.txt$/,
+                use: 'raw-loader'
             }
         ],
     },

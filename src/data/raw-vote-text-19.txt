@@ -1,0 +1,25 @@
+Y  Abbott, Kim	Y  Farris-Olsen, Robert	Y  Kelker, Kathy	Y  Read, Joe
+Y  Anderson, Fred	Y  Fern, Dave	Y  Keogh, Connie	Y  Redfield, Alan
+Y  Bachmeier, Jacob	Y  Fitzgerald, Ross	Y  Kerr-Carpenter, Emma	Y  Regier, Matt
+Y  Bahr, Jade	Y  Fleming, Frank	Y  Knudsen, Rhonda	Y  Ricci, Vince
+Y  Ballance, Nancy	Y  Fuller, John	Y  Knudsen, Casey	Y  Runningwolf, Tyson
+Y  Bartel, Dan	Y  Funk, Moffie	Y  Krautter, Joel	Y  Ryan, Marilyn
+Y  Beard, Becky	Y  Galloway, Lola	Y  Krotkov, Jasmine	Y  Sales, Walt
+Y  Bedey, David	Y  Galt, Wylie	Y  Lenz, Dennis	Y  Schreiner, Casey
+Y  Berglee, Seth	Y  Garcia, Rodney	Y  Loge, Denley	Y  Shaw, Ray
+Y  Bessette, Barbara	Y  Garner, Frank	Y  Lynch, Ryan	Y  Skees, Derek
+Y  Bishop, Laurie	Y  Glimm, Carl	N  Mandeville, Forrest	Y  Smith, Bridget
+Y  Brown, Zach	Y  Greef, Sharon	Y  Manzella, Theresa	Y  Stewart Peregoy, Sharon
+Y  Brown, Bob	Y  Grubbs, Bruce	Y  Marler, Marilyn	Y  Sullivan, Katie
+N  Burnett, Tom	Y  Gunderson, Steve	Y  McKamey, Wendy	Y  Sweeney, Mark
+Y  Buttrey, Edward	Y  Hamilton, Jim	Y  Mercer, Bill	Y  Tschida, Brad
+Y  Caferro, Mary	Y  Hamlett, Bradley	Y  Moore, Frederick (Eric)	Y  Usher, Barry
+Y  Curdy, Willis	Y  Harvey, Derek	Y  Moore, Terry	Y  Vinton, Sue
+Y  Custer, Geraldine	Y  Hayman, Denise	Y  Morigeau, Shane	Y  Weatherwax, Marvin
+Y  DeVries, Greg	Y  Hertz, Greg	Y  Mortensen, Dale	Y  Webb, Peggy
+Y  Doane, Alan	Y  Holmlund, Kenneth	Y  Noland, Mark	Y  Welch, Tom
+Y  Dooling, Julie	Y  Hopkins, Mike	Y  Olsen, Andrea	Y  White, Kerry
+Y  Dudik, Kimberly	Y  Jones, Llew	Y  Peppers, Rae	Y  Windy Boy, Jonathan
+Y  Dunn, David	Y  Karjala, Jessica	Y  Perry, Zac	Y  Winter, Thomas
+Y  Dunwell, Mary Ann	Y  Kassmier, Joshua	Y  Pierson, Gordon	Y  Woods, Tom
+Y  Duram, Neil	Y  Keane, Jim	Y  Pope, Christopher	Y  Zolnikov, Daniel
