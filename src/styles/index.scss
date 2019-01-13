@@ -1,33 +1,35 @@
+@import "~bootstrap/scss/bootstrap";
+
 html, body {
     height: 100%;
     width: 100%;
     font-size: 100%;
-    font-family: sans-serif;
-    text-align: center;
-    font-weight: lighter;
+    // font-family: sans-serif;
+    // text-align: center;
+    // font-weight: lighter;
 }
 
 a{
     color: inherit;
 }
 
-button{
-    cursor: pointer;
-    outline:none;
-    font-weight: 300;
-    background-color: #1dce94;
-    border: none;
-    border-radius: 500px;
-    color: white;
-    padding:0.5rem 1rem;
-    transition: all 0.3s;
+// button{
+//     cursor: pointer;
+//     outline:none;
+//     font-weight: 300;
+//     background-color: #1dce94;
+//     border: none;
+//     border-radius: 500px;
+//     color: white;
+//     padding:0.5rem 1rem;
+//     transition: all 0.3s;
 
-    &:hover{
-        color: #1dce94;
-        background-color: white;
-    }
+//     &:hover{
+//         color: #1dce94;
+//         background-color: white;
+//     }
 
-    &:active{
-        background-color: #cbcbcb;
-    }
-}
+//     &:active{
+//         background-color: #cbcbcb;
+//     }
+// }
