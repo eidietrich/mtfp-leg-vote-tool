@@ -6,7 +6,6 @@ require('./styles/index.scss');
 
 // js
 import './js/template.js'
-import draw from './js/mt-leg-chart.js'
 import processData from './js/data-processing.js'
 import { copyOutputBoxContents } from './js/makeHtml.js'
 import { makeDownloadImage } from './js/makeImage.js'
@@ -19,6 +18,8 @@ import * as d3 from 'd3'
 
 
 import { DEFAULT_HEADLINE, DEFAULT_SUBHEAD,
+    //
+    graphicOptions,
     // DOM elements
     headlineInput, cutlineInput, voteTextInput, urlInput,
     vizContainer, tooltipContainer
@@ -32,12 +33,19 @@ function init(){
   headlineInput.value = DEFAULT_HEADLINE;
   cutlineInput.value = DEFAULT_SUBHEAD;
 
+  d3.select('#graphic-type')
+    .selectAll('option')
+    .data(graphicOptions).enter()
+    .append('option')
+    .attr('value', d => d.key)
+    .text(d => d.label)
+  let curChart = graphicOptions.find(d => d.key === 'by-party'); // TODO - wire this to selector
   addFormListeners();
-  addOutputBoxListener();
+//   addOutputBoxListener();
 
   voteTextInput.value = initText;
   let voteData = processData(initText, legRoster);
-  draw({
+  curChart.draw({
     container: vizContainer,
     headline: headlineInput.value,
     cutline: cutlineInput.value,

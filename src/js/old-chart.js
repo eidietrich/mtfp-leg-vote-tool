@@ -1,12 +1,14 @@
 // DRAW GRAPHIC
 
+require('./../styles/old-chart.scss')
+
 import { capitalizeFirstLetter } from './utils'
 import { voteKey } from './config'
 
 import { initializeTooltips, initializeFilters } from './template'
 import { fillOutputBox } from './makeHtml' 
 
-export default function draw(opts){
+export default function drawOldChart(opts){
     console.log('drawing with', opts)
     const headline = opts.headline
     const cutline = opts.cutline

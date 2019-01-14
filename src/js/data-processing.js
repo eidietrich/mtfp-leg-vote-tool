@@ -60,6 +60,7 @@ function parseVoteText(text){
     var voteNameRe = new RegExp(voteRe.source + nameRe.source, 'g');
   
     var votesAndNames = text.match(voteNameRe);
+
     var voteNamesParsed = votesAndNames.map(function(voteAndName){
       var leg = {}
       // Messiness through here to deal with variable whitespace after vote letter
@@ -73,32 +74,20 @@ function parseVoteText(text){
 }
   
 function mergeVotesWithRoster(votes, roster){
-    var merged = votes.map(function(vote){
-      var merge = {};
-      merge.vote = vote.vote;
-  
-      var name = vote.name.toUpperCase();
-  
-      // Find legislator info
-      var legInfo = roster.filter(function(leg){
-        var matchNames = [leg.name].concat(leg.altNames);
-        return matchNames.indexOf(name) >= 0;
-      })[0]; // [0] selects first (and hopefully only) match
-      if (!legInfo) {
-        console.log('No match for ', name)
-        return merge;
+    const merged = votes.map(vote => {
+      const match = roster.find(d => d.laws_vote_name.toUpperCase() === vote.name.toUpperCase())
+      console.assert(match, `No match for ${vote.name}`)
+      if (match) return {
+        firstName: match.first_name,
+        lastName: match.last_name,
+        laws_name: vote.name,
+        district: match.district,
+        districtNum: match.district_num,
+        party: match.party,
+        city: 'TK_CITY', // TODO: Add this to leg roster
+        vote: vote.vote,
       }
-  
-      let districtNum = +legInfo['Districts'].slice(3);
-  
-      merge.firstName = legInfo['FirstName'];
-      merge.lastName = legInfo['LastName'];
-      merge.district = legInfo['Districts'];
-      merge.districtNum = districtNum;
-      merge.party = legInfo['PartyAbbrev'];
-      merge.city = legInfo['City'];
-  
-      return merge;
-    });
+    })
+    // console.log('m', merged)
     return merged;
 }

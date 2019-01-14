@@ -1,15 +1,27 @@
 import { select } from 'd3'
 
+import drawOldChart from './old-chart.js'
+import drawPartyChart from './party-chart.js'
+
 export const DEFAULT_HEADLINE = 'Write a chart headline';
 export const DEFAULT_SUBHEAD = 'Describe what the vote means.';
 
 export const BREAKPOINT = 768;
+
+export const graphicOptions = [
+    {key: 'default', label: 'Default', draw: drawOldChart},
+    {key: 'by-party', label: 'By Party', draw: drawPartyChart},
+]
 
 export const voteKey = {
   'Y': 'yea',
   'N': 'nay',
   'A': 'absent',
   'E': 'excused'
+}
+export const partyKey = {
+    'R': 'gop',
+    'D': 'dem',
 }
 
 // ELEMENTS

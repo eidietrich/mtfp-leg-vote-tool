@@ -4,7 +4,6 @@ import $ from 'jquery'
 import html2canvas from 'html2canvas'
   
 export function makeDownloadImage(){
-    console.log('makeDownload');
     var exportWidth = 600; //1200
     var exportHeight = 300; //630
     var initialScale = 0.5;
@@ -25,34 +24,25 @@ export function makeDownloadImage(){
     });
   
     // scale up contents to fill exportWidth and exportHeight
-    var curHeight = renderContainer.outerHeight();
-    var curScale = initialScale;
-    while (curHeight < exportHeight - tolerance){
-      curScale += 0.01;
-      renderContains.css('display', 'block')
-      renderContainer.css('transform', 'scale(' + curScale + ')');
-      renderContainer.css('width', exportWidth / curScale + 'px');
-      curHeight = renderContainer.outerHeight();
-    }
+    let curHeight = renderContainer.outerHeight();
+    console.log('scaling', curHeight, (exportHeight - tolerance))
+    let curScale = initialScale;
+    // while (curHeight < exportHeight - tolerance){
+    //   curScale += 1; // was 0.01
+    //   renderContainer.css('transform', 'scale(' + curScale + ')');
+    //   renderContainer.css('width', exportWidth / curScale + 'px');
+    //   curHeight = renderContainer.outerHeight();
+    //   console.log('scale iter', curHeight, curScale, (exportHeight - tolerance))
+    // }
   
-    var options = {
-    //   onrendered: function(canvas){
-    //     // $("#trigger-image-download").on('click', function(){
-    //     //   this.href = canvas.toDataURL('image/png');
-    //     //   this.download = 'vote-map.png';
-  
-    //     // });
-    //     // $('.static-image-indicator').text('Yes');
-    //     // renderContainer.html("");
-    //   },
+    const html2canvasOptions = {
       background: '#fff',
-      height: exportHeight,
+      height: curHeight, // was exportHeight
       width: exportWidth,
     }
 
-    // elegantize --> renderContainer is jQuery selection array, not element
-    console.log('rc', renderContainer)
-    html2canvas(renderContainer[0], options)
+    // renderContainer is jQuery selection array, not element
+    html2canvas(renderContainer[0], html2canvasOptions)
         .then((canvas) => {
             $("#trigger-image-download").on('click', function(){
                 console.log('dc')

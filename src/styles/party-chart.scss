@@ -1,0 +1,137 @@
+hr.graphic-hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.vote-total-container {
+    font-size: 1.2em;
+    text-align: center;
+}
+.number-large {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+// Grid
+.grid-row {
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+}
+
+.grid-col {
+    // min-width: 200px;
+    width: 45%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
+.header-row {
+    // background-color: green;
+    width: 100%;
+    display: flex;
+}
+.header-row .label-header {
+    width: 10%;
+    min-width: 4rem;
+}
+.header-row .header {
+    // color: pink;
+    width: 45%;
+    padding-left: 5px;
+    font-weight: bold;
+    // font-style: italic;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    border: 1px solid #bbb;
+}
+.header-row .header.aye {
+    background-color: #ddd;
+}
+
+.grid-row {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.grid-row-label {
+    width: 10%;
+    min-width: 4rem;
+    text-align: left;
+    padding-left: 3px;
+    // font-weight: bold;
+}
+.grid-row-label .head {
+    font-weight: bold;
+}
+.grid-row-label.dem {
+    color: #2a72af;
+    padding-top: 5px;
+}
+.grid-row-label.gop {
+    color: #b82f36;
+    padding-top: 5px;
+}
+.grid-row.gop {
+    border: 1px solid #b82f36;
+    border-top-width: 8px;
+    border-bottom-width: 1px;
+}
+.grid-row.dem {
+    border: 1px solid #2a72af;
+    border-top-width: 8px;
+    border-bottom-width: 1px;
+}
+
+
+.grid-col {
+    border: 1px solid #bbb;
+    margin: 5px;
+}
+.grid-col.aye {
+    background-color: #ddd;
+}
+
+// Grid squares
+.seat {
+    display: inline-block;
+    margin: 0.2vw;
+    width: 2vw;
+    min-width: 10px;
+    height: 2vw;
+    min-height: 10px;
+}
+.grid-col.aye.gop .seat {
+    // border: 1px solid #b82f36;
+    border: 1px solid #660821;
+    background-color: #b82f36;
+    color: white;
+}
+.grid-col.nay.gop .seat {
+    border: 1px solid #660821;
+    background-color: #b82f36;
+    color: white;
+}
+.grid-col.aye.dem .seat {
+    border: 1px solid #1b3360;
+    background-color: #2a72af;
+    color: white
+}
+.grid-col.nay.dem .seat {
+    border: 1px solid #1b3360;
+    background-color: #2a72af;
+    color: white;
+}
+
+.seat.empty {
+    border: 1px solid #bbb !important; 
+    background: none !important;
+}
+
+// Credit
+
+.credit {
+    font-style: italic;
+    text-align: right;
+}

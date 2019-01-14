@@ -1,5 +1,4 @@
 @import "~bootstrap/scss/bootstrap";
-@import 'chart';
 
 html, body {
     height: 100%;
@@ -10,6 +9,12 @@ html, body {
     // text-align: center;
     // font-weight: lighter;
 }
+
+  #viz-container {
+    padding: 10px 10px;
+    background-color: #fff;
+    max-width: 800px;
+  }
 
 .container {
     margin-bottom: 30px;
@@ -26,6 +31,10 @@ html, body {
 
 .image-export {
     // display: none;
+}
+
+select {
+    display: block
 }
 
 // button{
