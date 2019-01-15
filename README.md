@@ -1,6 +1,6 @@
 # Montana Free Press 2019 Legislature chart builder
 
-Tool for visualizing votes by the Montana legislature + producing static graphics, inspired by Quartz's [Chartbuilder](http://quartz.github.io/Chartbuilder/).
+Tool for visualizing votes by the Montana legislature + producing static graphics, inspired by Quartz's [Chartbuilder](http://quartz.github.io/Chartbuilder/). In action [here](https://ericidietrich.com/mtfp-leg-vote-tool/).
 
 Adapted from an [earlier project](https://github.com/eidietrich/mt-leg-vote-viz) produced for the [Bozeman Daily Chronicle](https://www.bozemandailychronicle.com/).
 
