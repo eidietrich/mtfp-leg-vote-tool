@@ -12,19 +12,24 @@ import { makeDownloadImage } from './js/makeImage.js'
 
 // data
 import initText from './data/raw-vote-text-19.txt'
-import legRoster from './data/mt-house-roster-19.json';
+import legRoster from './data/mt-leg-roster-19.json';
 
 import * as d3 from 'd3'
 
 
-import { DEFAULT_HEADLINE, DEFAULT_SUBHEAD,
+import {
+    DEFAULT_HEADLINE, DEFAULT_SUBHEAD,
+    DEFAULT_EXPORT_WIDTH, DEFAULT_EXPORT_HEIGHT,
     //
     graphicOptions,
     // DOM elements
     headlineInput, cutlineInput, voteTextInput, urlInput,
-    vizContainer, tooltipContainer
+    vizContainer, tooltipContainer,
+    exportImageWidth, exportImageHeight,
 } from './js/config.js'
-import { initializeFilters, initializeTooltips } from './js/template.js'
+import { initializeTooltips } from './js/template.js'
+
+let curChart;
 
 // INITIALIZE APP
 function init(){
@@ -32,6 +37,8 @@ function init(){
   // Initialize form contents
   headlineInput.value = DEFAULT_HEADLINE;
   cutlineInput.value = DEFAULT_SUBHEAD;
+  exportImageWidth.value = DEFAULT_EXPORT_WIDTH;
+  exportImageHeight.value = DEFAULT_EXPORT_HEIGHT;
 
   d3.select('#graphic-type')
     .selectAll('option')
@@ -39,39 +46,22 @@ function init(){
     .append('option')
     .attr('value', d => d.key)
     .text(d => d.label)
-  let curChart = graphicOptions.find(d => d.key === 'by-party'); // TODO - wire this to selector
+  curChart = graphicOptions.find(d => d.key === 'by-party'); // TODO - wire this to selector
   addFormListeners();
 //   addOutputBoxListener();
 
   voteTextInput.value = initText;
-  let voteData = processData(initText, legRoster);
-  curChart.draw({
-    container: vizContainer,
-    headline: headlineInput.value,
-    cutline: cutlineInput.value,
-    data: voteData,
-  });
+  reDraw()
+//   let voteData = processData(initText, legRoster);
+//   curChart.draw({
+//     container: vizContainer,
+//     headline: headlineInput.value,
+//     cutline: cutlineInput.value,
+//     data: voteData,
+//   });
   addImageGenerateListener();
 //   initializeTooltips();
-  initializeFilters();
 
-//   d3.queue()
-//     .defer(d3.text, initialTextPath)
-//     .defer(d3.json, legRosterPath)
-//     .defer(d3.text, templateStylePath)
-//     .defer(d3.text, templateJsPath)
-//     .await(function(err, initText, rosterJson, css, js){
-//       if (err) throw err;
-//       voteTextInput.value = initText;
-//       voteData = processData(initText, rosterJson); // Call to data-processing.js
-//       legRoster = rosterJson;
-//       templateCss = css;
-//       templateJs = js;
-//       draw(chartText, voteData); // Call to mt-leg-chart.js
-
-//     //   fillOutputBox();
-//       addGenerateListener();
-//   });
 }
 
 function addOutputBoxListener() {
@@ -79,20 +69,31 @@ function addOutputBoxListener() {
       .addEventListener('click', copyOutputBoxContents);
 }
 
+function reDraw(){
+    let voteData = processData(voteTextInput.value, legRoster);
+    curChart.draw({
+        container: vizContainer,
+        headline: headlineInput.value,
+        cutline: cutlineInput.value,
+        data: voteData,
+    })
+    initializeTooltips();
+}
+
 // INPUT FORM HANDLING
 function onFormSubmit(e){
-  e.preventDefault();
-  let voteData = processData(voteTextInput.value, legRoster);
-  draw({
-    container: vizContainer,
-    headline: headlineInput.value,
-    cutline: cutlineInput.value,
-    data: voteData,
-  });
+  e.preventDefault()
+  reDraw()
 }
 function addFormListeners(){
   document.querySelector('.leg-data-form')
     .addEventListener('submit', onFormSubmit);
+  document.querySelector('#vote-text-input')
+    .addEventListener('input', reDraw);
+  document.querySelector('#title-input')
+    .addEventListener('input', reDraw);
+  document.querySelector('#description-input')
+    .addEventListener('input', reDraw);
 }
 function addImageGenerateListener(){
     document.querySelector('#generate-image')

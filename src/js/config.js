@@ -3,14 +3,17 @@ import { select } from 'd3'
 import drawOldChart from './old-chart.js'
 import drawPartyChart from './party-chart.js'
 
-export const DEFAULT_HEADLINE = 'Write a chart headline';
-export const DEFAULT_SUBHEAD = 'Describe what the vote means.';
+export const DEFAULT_HEADLINE = "Write a title (e.g., HB-1 'Feed bill', third reading)";
+export const DEFAULT_SUBHEAD = 'Describe what the vote means. (e.g., Passed House with GOP Reps. Mandeville and Burnett dissenting.)';
+
+export const DEFAULT_EXPORT_WIDTH = 800
+export const DEFAULT_EXPORT_HEIGHT = 400
 
 export const BREAKPOINT = 768;
 
 export const graphicOptions = [
-    {key: 'default', label: 'Default', draw: drawOldChart},
-    {key: 'by-party', label: 'By Party', draw: drawPartyChart},
+    // {key: 'default', label: 'Default', draw: drawOldChart},
+    {key: 'by-party', label: 'Votes by Party', draw: drawPartyChart},
 ]
 
 export const voteKey = {
@@ -25,11 +28,14 @@ export const partyKey = {
 }
 
 // ELEMENTS
-export const headlineInput = document.querySelector('#headline-input')
-export const cutlineInput = document.querySelector('#cutline-input')
+export const headlineInput = document.querySelector('#title-input')
+export const cutlineInput = document.querySelector('#description-input')
 export const urlInput = document.querySelector('#url-input')
 export const voteTextInput = document.querySelector('#vote-text-input')
 export const embedHtmlOutput = document.querySelector('#html-for-embed')
+
+export const exportImageWidth = document.querySelector('#export-width')
+export const exportImageHeight = document.querySelector('#export-height')
 
 // d3 selection
 export const vizContainer = select('#viz-container')

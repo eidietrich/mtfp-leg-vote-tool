@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>mtfp-leg-vote-tool</title>
+    <title>Visualize 2019 MT Leg. votes | MTFP </title>
     <!-- Twitter Card data -->
     <meta name="twitter:card" value="Webpack basic starter project">
-    <meta name="Description" content="A simple webpack starter project for your basic web development needs."/>
+    <meta name="Description" content="Tool for visualizing 2019 Montana Legislature votes."/>
     <!-- Open Graph data -->
-    <meta property="og:title" content="Webpack basic starter project" />
+    <meta property="og:title" content="Tool for visualizing 2019 Montana Legislature votes." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://lifenautjoe.github.io/webpack-starter-basic/" />
-    <meta property="og:image" content="https://i.snag.gy/i3eMBc.jpg" />
-    <meta property="og:description" content="A simple webpack starter project for your basic web development needs." />
+    <meta property="og:url" content="https://montanafreepress.org/" />
+    <meta property="og:image" content="https://montanafreepress.org/wp-content/uploads/2018/08/2018-MT-Free-Press-Logo_1170-1-1170x479.png" />
+    <meta property="og:description" content="Tool for visualizing 2019 Montana Legislature votes." />
     <!-- Mobile header color for Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#444444">
     <!-- Mobile header color Windows Phone -->
@@ -24,47 +24,41 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="page-header">Visualizing 2019 MTLeg votes</h1>
+        <h1 class="page-header">Votes visualized, 2019 Montana Legislature</h1>
+        <hr />
 
         <h4>Enter vote info</h4>
         <form class="leg-data-form">
           <div class="form-group">
-              
-            
-            <!-- <label for="url-input">Bill page URL (optional)</label>
-            <input type="text" class="form-control"
-              id="url-input"> -->
              
             <label for="vote-text-input">
               Vote text (clear default, then copy text from bill page, e.g.
-              <a href="http://laws.leg.mt.gov/legprd/LAW0211W$BLAC.VoteTabulation?P_VOTE_SEQ=S151&P_SESS=20171" target="_blank">here</a>
+              <a href="http://laws.leg.mt.gov/legprd/LAW0211W$BLAC.VoteTabulation?P_VOTE_SEQ=H0035&P_SESS=20191" target="_blank">here</a>
                or
-               <a href="http://leg.mt.gov/bills/2017/minutes/house/votesheets/HB0042TAH170113.pdf" target="_blank">here</a>).
+               <a href="https://leg.mt.gov/bills/2019/minutes/house/votesheets/HB0001APH190108.pdf" target="_blank">here</a>).
                Both committee and full session votes should work.
             </label>
             <textarea type="text" class="form-control" rows="10" id="vote-text-input"></textarea>
 
-            <label for="graphic-type">Graphic option</label>
-            <select class="dropdown" type="select" id="graphic-type"></select>
+            <label for="graphic-type">Graphic type</label>
+            <select class="form-control small" type="select" id="graphic-type"></select>
             
-            <label for="headline-input">Headline</label>
-            <input type="text" class="form-control" id="headline-input" placeholder="">
+            <label for="title-input">Title</label>
+            <input type="text" class="form-control" id="title-input" placeholder="">
 
-            <label for="cutline-input">Cutline</label>
-            <input type="text" class="form-control" id="cutline-input">
-
-            <br/>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <label for="description-input">Description</label>
+            <input type="text" class="form-control" id="description-input">
+            <!-- <p>Graphic should update as soon as above text is changed.</p> -->
+            <!-- <br/> -->
+            <!-- <button type="submit" class="btn btn-dark">Update</button> -->
           </div>
         </form>
         <hr>
     
-        <h4>Interactive</h4>
+        <h4>Visualization (interactive)</h4>
         <div id="viz-root">
-            <div id="viz-container">
-                <div id="viz-contents"></div>
-                <div id="tooltip-container"></div>
-            </div>
+            <div id="viz-container"></div>
+            <div id="tooltip-container"></div>
         </div>
 
         <hr/>
@@ -82,20 +76,32 @@
         <hr /> -->
     
         <h4>Export static image (.png)</h4>
-        <button id="generate-image" class="btn btn-dark">1. Generate</button>
-        <button class="btn btn-dark">
+        <form class="export-config-form">
+            <div class="form-group">
+                
+                <label for="export-width">Export width (px)</label>
+                <input type="text" class="form-control small" id="export-width" placeholder="">
+    
+                <label for="export-height">Export height (px)</label>
+                <input type="text" class="form-control small" id="export-height" placeholder="">
+
+            </div>
+        </form>
+        <a id="generate-image" class="btn btn-dark">1. Generate</a>
+        <a class="btn btn-info" id="trigger-image-download">2.Download</a>
+        <!-- <button class="btn btn-dark" id="trigger-image-download">2. Download -->
             <!-- This needs a link to work -->
-            <a id="trigger-image-download">2. Download</a>
-        </button>
+            <!-- <a id="trigger-image-download">2. Download</a> -->
+        <!-- </button> -->
         <!-- <p>Static image generated: <span class="static-image-indicator">No</span></p> -->
-        <p>Note: May not work in Internet Explorer</p>
-        <h5>Image (png) export preview</h5>
-        <div id="image-preview" width="100%">None yet</div>
+        <p>(May not work in Internet Explorer)</p>
+        <!-- <h5>Image (png) export preview</h5> -->
+        <div id="image-preview" width="100%">No preview yet</div>
         <div class="image-export" id="viz-container"></div>
 
         <hr />
         <div>
-            TK footer material. Built in 2019 by Eric Dietrich for the <a href="https://montanafreepress.org">Montana Free Press</a>, updating an earlier project produced for the <a href="https://bozemandailychronicle.com">Bozeman Daily Chronicle</a>.
+            Built in 2019 by Eric Dietrich for the <a href="https://montanafreepress.org">Montana Free Press</a>, updating an earlier open source project produced for the <a href="https://bozemandailychronicle.com">Bozeman Daily Chronicle</a>.
         </div>
     </div>  
     

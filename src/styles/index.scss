@@ -13,28 +13,63 @@ html, body {
   #viz-container {
     padding: 10px 10px;
     background-color: #fff;
-    max-width: 800px;
+    // max-width: 800px;
   }
 
 .container {
     margin-bottom: 30px;
+    max-width: 1000px;
 }
 
 
 #image-preview {
     min-height: 200px;
     text-align: center;
-    padding-top: 40px;
-    background-color: #fff;
+    padding-top: 20px;
+    background-color: #666;
     margin-bottom: 5px;
+    color: #eee;
 }
 
 .image-export {
-    // display: none;
+    display: none;
 }
+
+// hack for overiding obscure Bootstrap style
+a:not([href]):not([tabindex]) {
+    color: white;
+    &:hover{ color: #eee; }
+}
+
+
 
 select {
     display: block
+}
+
+#tooltip-container{
+    width: auto;
+    position: absolute;
+
+    .tooltip-content {
+        background-color: #444;
+        border: 1px solid #222;
+        color: #fff;
+        opacity: 0.95;
+        padding: 0.3em;
+        .tooltip-title {
+            font-weight: bold;
+        }
+    }
+
+    &.hide {
+        display: none;
+    }
+}
+
+// appending to Bootstrap dropdown
+.form-control.small {
+    max-width: 300px;
 }
 
 // button{

@@ -50,12 +50,16 @@ function parseVoteText(text){
   
     // Regex to match 'V  Last, First' legislator name pattern
     var voteRe = /[NYAE]\s{1,2}/;
-    var nameRe = /[A-Z][']?[\w\-\s]+, [\w]+( \w{2,})?/;
+    // var nameRe = /[A-Z][']?[\w\-\s]+, [\w]+( \w{2,})?/;
+    var nameRe = /[A-Z][']?[\w\-\s]+, [\w]+( \w{2,})?(\s\(\w+\))?/;
     /* Explanation
     - [NYAE] matches vote indicators (Nay, Aye, Absent, Excused)
     - \s{1,2} matches one or two characters of white space following vote letter
     - [A-Z][']?[\w\-\s]+ matches last name, including second-letter apostrophes, hyphens and dual last names separated by single space
-    - [\w]+( \w{2,})? matches first name, including optional second first name (e.g. "Mary Ann")
+    - [\w]+ matches first name
+    - ( \w{2,})? matchs optional second first name (e.g. "Mary Ann")
+    - (\s\(\w+\))? matches optional nickname in parenthesis, e.g. (Eric)
+
     */
     var voteNameRe = new RegExp(voteRe.source + nameRe.source, 'g');
   
@@ -84,7 +88,7 @@ function mergeVotesWithRoster(votes, roster){
         district: match.district,
         districtNum: match.district_num,
         party: match.party,
-        city: 'TK_CITY', // TODO: Add this to leg roster
+        city: match.city,
         vote: vote.vote,
       }
     })

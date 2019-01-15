@@ -137,5 +137,5 @@ function drawSeat(elem){
 function addMTFPCredit(elem){
     elem.append('div')
         .attr('class', 'credit')
-        .text("#mtleg vote mapper / Montana Free Press")
+        .text("MTFP / Montana Free Press")
 }
