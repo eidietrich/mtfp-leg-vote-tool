@@ -27,21 +27,7 @@ export default function drawOldChart(opts){
   
     vizContainer.append('h4').text(headline);
     vizContainer.append('div').text(cutline);
-  
-    if (url){
-        vizContainer.append('p')
-        .html(
-          '<a href="' + url + '" target="_blank">See more</a> on the bill.'
-        );
-    }
-    
-    vizContainer.append('hr').attr('class','graphic-hr')
-    vizContainer.append('div')
-      .attr('class','vote-total-container')
-      .html(
-        `<span class="number-large">${totals.overall.yea}</span> in favor - <span class="number-large">${totals.overall.nay}</span> opposed`
-      );
-    vizContainer.append('hr').attr('class','graphic-hr')
+    vizContainer.append('br')
 
     drawGrid(vizContainer, data)
     
@@ -82,8 +68,10 @@ function drawGrid(elem, data){
 
     const headerRow = grid.append('div').attr('class', 'header-row')
     headerRow.append('div').attr('class','label-header') // spacing element
-    headerRow.append('div').attr('class','header aye').text('For')
-    headerRow.append('div').attr('class','header').text('Against')
+    headerRow.append('div').attr('class','header aye')
+        .html(`<span class="number-large">${totals.overall.yea}</span> in favor `)
+    headerRow.append('div').attr('class','header')
+        .html(`<span class="number-large">${totals.overall.nay}</span> opposed`)
 
     const gopRow = grid.append('div').attr('class', 'grid-row gop')
     const gopRowLabel = gopRow.append('div').attr('class', 'grid-row-label gop')
