@@ -1,10 +1,15 @@
 import { select } from 'd3'
 
-import drawOldChart from './old-chart.js'
 import drawPartyChart from './party-chart.js'
+// import initText from './data/raw-vote-text-19.txt'
 
-export const DEFAULT_HEADLINE = "Write a title (e.g., HB-1 'Feed bill', third reading)";
-export const DEFAULT_SUBHEAD = 'Describe what the vote means. (e.g., Passed House with GOP Reps. Mandeville and Burnett dissenting.)';
+// export const DEFAULT_HEADLINE = "Write a title (e.g., HB-1 'Feed bill', third reading)";
+// export const DEFAULT_SUBHEAD = 'Describe what the vote means. (e.g., Passed House with GOP Reps. Mandeville and Burnett dissenting.)';
+// export const INIT_TEXT = initText
+
+export const DEFAULT_HEADLINE = '[TITLE GOES HERE]'
+export const DEFAULT_SUBHEAD = ''
+export const INIT_TEXT = ''
 
 export const DEFAULT_EXPORT_WIDTH = 800
 export const DEFAULT_EXPORT_HEIGHT = 400

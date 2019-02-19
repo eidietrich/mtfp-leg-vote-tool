@@ -63,7 +63,7 @@ function parseVoteText(text){
     */
     var voteNameRe = new RegExp(voteRe.source + nameRe.source, 'g');
   
-    var votesAndNames = text.match(voteNameRe);
+    var votesAndNames = text.match(voteNameRe) || [];
 
     var voteNamesParsed = votesAndNames.map(function(voteAndName){
       var leg = {}

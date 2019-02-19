@@ -11,7 +11,6 @@ import { copyOutputBoxContents } from './js/makeHtml.js'
 import { makeDownloadImage } from './js/makeImage.js'
 
 // data
-import initText from './data/raw-vote-text-19.txt'
 import legRoster from './data/mt-leg-roster-19.json';
 
 import * as d3 from 'd3'
@@ -19,6 +18,7 @@ import * as d3 from 'd3'
 
 import {
     DEFAULT_HEADLINE, DEFAULT_SUBHEAD,
+    INIT_TEXT,
     DEFAULT_EXPORT_WIDTH, DEFAULT_EXPORT_HEIGHT,
     //
     graphicOptions,
@@ -30,6 +30,7 @@ import {
 import { initializeTooltips } from './js/template.js'
 
 let curChart;
+
 
 // INITIALIZE APP
 function init(){
@@ -50,7 +51,7 @@ function init(){
   addFormListeners();
 //   addOutputBoxListener();
 
-  voteTextInput.value = initText;
+  voteTextInput.value = INIT_TEXT;
   reDraw()
 //   let voteData = processData(initText, legRoster);
 //   curChart.draw({
